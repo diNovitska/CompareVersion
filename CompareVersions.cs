@@ -11,7 +11,7 @@ namespace CompareVersion
 
             string[] versionA = s.Split(".");
             string[] versionB = s2.Split(".");
-            int j; int i;
+            int i;
             String HigherVersion = "";
             string[] longerVersion;
 
@@ -19,7 +19,7 @@ namespace CompareVersion
             longerVersion = (versionA.Length > versionB.Length) ? versionA : versionB;
             string longerVersionText = (versionA.Length > versionB.Length) ? "VersionA" : "VersionB";
 
-            for (i = 0, j = 0; i < size; i++, j++)
+            for (i = 0; i < size; i++)
             {
                 int isEqual = versionA[i].CompareTo(versionB[i]);
                 if (isEqual == -1)
