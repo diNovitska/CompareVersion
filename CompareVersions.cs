@@ -22,35 +22,30 @@ namespace CompareVersion
             for (i = 0, j = 0; i < size; i++, j++)
             {
                 int isEqual = versionA[i].CompareTo(versionB[i]);
-                switch (isEqual)
+                if (isEqual == -1)
                 {
-                    case -1:
-                        HigherVersion = "versionB is higher";
-                        break;
-                    case 1:
-                            HigherVersion = "versionA is higher";
-                            break;                     
-                    case 0:
+                    HigherVersion = "versionB is higher";
+                    break;
+                }
+                if (isEqual == 1)
+                {
+                    HigherVersion = "versionA is higher";
+                    break;
+                }
+                if (isEqual == 0)
+                {
+                    HigherVersion = "Versions are equal";
+                    if (versionA.Length != versionB.Length)
+                    {
+                        if ((longerVersion[size].Equals("0")))
                         {
                             HigherVersion = "Versions are equal";
-                            if (versionA.Length != versionB.Length)
-                            {
-                                if ((longerVersion[size].Equals("0")))
-                                {
-                                    HigherVersion = "Versions are equal";
-                                }
-                                else
-                                {
-                                    HigherVersion = longerVersionText + " is higher";
-                                }
-                            }
                         }
-                        break;
-                    default:
-                        Console.WriteLine("Wrong format of strings");
-                        break;
-
-
+                        else
+                        {
+                            HigherVersion = longerVersionText + " is higher";
+                        }
+                    }
                 }
             }
 
